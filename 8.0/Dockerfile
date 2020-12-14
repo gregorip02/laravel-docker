@@ -1,4 +1,4 @@
-FROM php:8.0-rc-alpine
+FROM php:8.0-alpine
 
 # Install dev dependencies
 RUN apk add --no-cache --virtual .build-deps \
@@ -39,13 +39,13 @@ RUN apk add --no-cache \
 # Install PECL and PEAR extensions
 RUN pecl install \
     redis \
-    # imagick \
+    imagick \
     xdebug
 
 # Enable PECL and PEAR extensions
 RUN docker-php-ext-enable \
     redis \
-    # imagick \
+    imagick \
     xdebug
 
 # Configure php extensions
